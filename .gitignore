@@ -1,0 +1,15 @@
+symfony/web/bundles/
+symfony/app/bootstrap.php.cache
+symfony/app/cache/*
+symfony/app/config/parameters.yml
+symfony/app/logs/*
+symfony/!app/cache/.gitkeep
+symfony/!app/logs/.gitkeep
+symfony/app/phpunit.xml
+symfony/build/
+symfony/vendor/
+symfony/bin/
+symfony/composer.phar
+symfony/composer.lock
+symfony/.idea
+.idea
