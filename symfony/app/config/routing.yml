@@ -1,3 +1,4 @@
-app:
-    resource: @AppBundle/Controller/
+tableless_core:
+    resource: "@TablelessCoreBundle/Controller/"
     type:     annotation
+    prefix:   /
