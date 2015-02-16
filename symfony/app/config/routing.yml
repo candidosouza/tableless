@@ -2,3 +2,8 @@ tableless_core:
     resource: "@TablelessCoreBundle/Controller/"
     type:     annotation
     prefix:   /
+
+tableless_model:
+    resource: "@TablelessModelBundle/Controller/"
+    type:     annotation
+    prefix:   /
