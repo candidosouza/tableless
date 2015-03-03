@@ -103,27 +103,4 @@ class Post extends Timestampable
     {
         return $this->content;
     }
-
-    /**
-     * Set author
-     *
-     * @param \Tableless\ModelBundle\Entity\Author $author
-     * @return Post
-     */
-    public function setAuthor(\Tableless\ModelBundle\Entity\Author $author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \Tableless\ModelBundle\Entity\Author 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
 }
