@@ -1,6 +1,6 @@
 <?php
 
-namespace Tableless\ModelBundle\Controller;
+namespace Tableless\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -40,7 +40,7 @@ class PostController extends Controller
      *
      * @Route("/", name="post_create")
      * @Method("POST")
-     * @Template("TablelessModelBundle:Post:new.html.twig")
+     * @Template("TablelessCoreBundle:Post:new.html.twig")
      */
     public function createAction(Request $request)
     {

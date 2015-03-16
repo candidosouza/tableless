@@ -1,6 +1,6 @@
 <?php
 
-namespace Tableless\ModelBundle\Controller;
+namespace Tableless\CoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -40,7 +40,7 @@ class AuthorController extends Controller
      *
      * @Route("/", name="author_create")
      * @Method("POST")
-     * @Template("TablelessModelBundle:Author:new.html.twig")
+     * @Template("TablelessCoreBundle:Author:new.html.twig")
      */
     public function createAction(Request $request)
     {
