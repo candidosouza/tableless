@@ -1,10 +1,27 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}TablelessCoreBundle:IndexControler:show{% endblock %}
+{% block title %}Blog - {{ post.title }}{% endblock %}
 
-{% block body %}
-    <h1>Welcome to the IndexControler:show page</h1>
+{% block content %}
 
-    {{ dump(post) }}
+    <div class="container">
+
+        <div class="row">
+
+            <article class="col-lg-12">
+
+                <h1>{{ post.title }}</h1>
+
+                <p>Escrito por: {{ post.author.name }}</p>
+
+                <p>Postado em: {{ post.createdAt | date('d/m/Y - H:m:s') }}</p>
+
+                <p>{{ post.content }}</p>
+
+            </article>
+
+        </div>
+
+    </div>
 
 {% endblock %}
