@@ -16,6 +16,8 @@ http://tableless.com.br/
 
 ><a href="http://tableless.com.br/iniciando-com-symfony-2-parte-05/" title="Artigo do projeto" target="_blank">4º -  *Iniciando com Symfony 2 - Parte 05*</a>
 
+><a href="http://tableless.com.br/iniciando-com-symfony-2-parte-06/" title="Artigo do projeto" target="_blank">4º -  *Iniciando com Symfony 2 - Parte 06*</a>
+
 ** Uso **
 
 > git clone https://github.com/candidosouza/tableless.git
