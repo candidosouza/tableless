@@ -1,15 +1,30 @@
-{% extends '::base.html.twig' %}
+{% extends "::base.html.twig" %}
 
-{% block body -%}
-    <h1>Post creation</h1>
+{% block title %}Simples Blog{% endblock %}
 
-    {{ form(form) }}
+{% block content %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('post') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1>Post creation</h1>
+
+            {{ form(form) }}
+
+            <ul class="record_actions">
+                <li>
+                    <a href="{{ path('post') }}">
+                        Back to the list
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
 {% endblock %}
+

@@ -18,7 +18,7 @@
 
                         <a href="{{ path('show', { 'id': post.id }) }}">
 
-                            <img class="img-responsive" src="{{ asset('logo-tableless.png') }}" alt="img" title="img"/>
+                            <img class="img-responsive" src="{{ asset(post.getCoverWeb) }}" alt="{{ post.cover }}" title="{{ post.cover }}"/>
 
                         </a>
 

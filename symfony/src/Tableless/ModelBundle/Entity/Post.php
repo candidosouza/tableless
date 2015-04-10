@@ -4,6 +4,8 @@ namespace Tableless\ModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * Post
@@ -46,6 +48,18 @@ class Post extends Timestampable
      * @Assert\NotBlank
      */
     private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cover", type="string", length=255, nullable=true)
+     */
+    private $cover;
+
+    /**
+     * @Assert\File(maxSize="1000000")
+     */
+    private $file;
 
 
     /**
@@ -125,5 +139,110 @@ class Post extends Timestampable
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    //////////////////////////////////////////////////////
+
+    /**
+     * Get cover
+     *
+     * @return string
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
+     * Set cover
+     *
+     * @param string $cover
+     * @return Image
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Relative path.
+     * Get web path to upload directory.
+     *
+     * @return string
+     */
+    protected function getUploadPath()
+    {
+        return 'uploads/covers';
+    }
+
+    /**
+     * Absolute path.
+     * Get absolute path to upload directory.
+     *
+     * @return string
+     */
+    protected function getUploadAbsolutePath()
+    {
+        return __DIR__ . '/../../../../web/' . $this->getUploadPath();
+    }
+
+    /**
+     * Relative path.
+     * Get web path to a cover.
+     *
+     * @return null|string
+     */
+    public function getCoverWeb()
+    {
+        return null === $this->getCover()
+            ? null
+            : $this->getUploadPath() . '/' . $this->getCover();
+    }
+
+    /**
+     * Get path on disk to a cover.
+     *
+     * @return null|string
+     *   Absolute path.
+     */
+    public function getCoverAbsolute()
+    {
+        return null === $this->getCover()
+            ? null
+            : $this->getUploadAbsolutePath() . '/' . $this->getCover();
+    }
+
+    /**
+     * Upload a cover file.
+     */
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        $filename = $this->getFile()->getClientOriginalName();
+        $this->getFile()->move($this->getUploadAbsolutePath(), $filename);
+        $this->setCover($filename);
+        $this->setFile();
     }
 }
