@@ -27,3 +27,6 @@ http://tableless.com.br/
 > composer install
 
 > php app/console server:run
+
+
+© 2015 Tableless | Candido Souza - Todos os direitos reservados
