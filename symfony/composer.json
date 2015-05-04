@@ -18,7 +18,8 @@
         "sensio/distribution-bundle": "~3.0.12",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "knplabs/knp-paginator-bundle": "2.4.*@dev"
+        "knplabs/knp-paginator-bundle": "2.4.*@dev",
+        "stof/doctrine-extensions-bundle": "1.2.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

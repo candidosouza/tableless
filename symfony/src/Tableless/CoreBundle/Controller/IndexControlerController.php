@@ -29,14 +29,16 @@ class IndexControlerController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="show")
+     * @Route("/show/{slug}", name="show")
      * @Template()
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $post = $em->getRepository('TablelessModelBundle:Post')->find($id);
+        $post = $em->getRepository('TablelessModelBundle:Post')->findOneBy([
+            'slug' => $slug
+        ]);
 
         if (!$post) {
             throw $this->createNotFoundException('O post não existe! Volte para home!');
