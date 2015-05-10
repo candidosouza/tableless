@@ -1,5 +1,5 @@
 ** Tutorial do Portal Tableless **
 
-[Tableless](http://tableless.com.br/){:target="_blank"}
+[Tableless](http://tableless.com.br/)
 
 © 2015 Tableless | Candido Souza - Todos os direitos reservados
