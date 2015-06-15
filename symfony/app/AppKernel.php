@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Tableless\ModelBundle\TablelessModelBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Tableless\UserBundle\TablelessUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

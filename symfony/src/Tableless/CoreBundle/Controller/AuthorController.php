@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Tableless\ModelBundle\Entity\Author;
 use Tableless\ModelBundle\Form\AuthorType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Author controller.
@@ -44,6 +45,11 @@ class AuthorController extends Controller
      */
     public function createAction(Request $request)
     {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException(" Somente o administrador pode acessar! ");
+        }
         $entity = new Author();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -90,6 +96,11 @@ class AuthorController extends Controller
      */
     public function newAction()
     {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException(" Somente o administrador pode acessar! ");
+        }
         $entity = new Author();
         $form   = $this->createCreateForm($entity);
 
@@ -133,6 +144,11 @@ class AuthorController extends Controller
      */
     public function editAction($id)
     {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException(" Somente o administrador pode acessar! ");
+        }
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('TablelessModelBundle:Author')->find($id);
@@ -178,6 +194,11 @@ class AuthorController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException(" Somente o administrador pode acessar! ");
+        }
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('TablelessModelBundle:Author')->find($id);
@@ -210,6 +231,11 @@ class AuthorController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
+        $securityContext = $this->get('security.context');
+
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException(" Somente o administrador pode acessar! ");
+        }
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
